@@ -10,7 +10,7 @@ package com.realcodeline.generate;
  * @author abel
  */
 public interface IGenerate {
-    public abstract void gerenciandoPassInfo(int tamanho, boolean upcase, boolean lowcase, 
+    public abstract void gerenciandoPassInfo(int size, boolean upcase, boolean lowcase, 
             boolean number, boolean symbol);
     public abstract String takePasswordGenerated();
 }

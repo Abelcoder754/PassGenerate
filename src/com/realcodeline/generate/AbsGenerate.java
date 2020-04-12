@@ -15,7 +15,7 @@ public abstract class AbsGenerate {
     /**
      * Attributes
      */
-    private int tamanho;
+    private int size;
     private int init;
     private int finish;
     private int item;
@@ -36,7 +36,7 @@ public abstract class AbsGenerate {
      * Builder Method.
      */
     public AbsGenerate() {
-        this.tamanho = 0;
+        this.size = 0;
         this.init = 0;
         this.finish = 0;
         this.random = 0;
@@ -53,16 +53,16 @@ public abstract class AbsGenerate {
      * Returns password size.
      * @return Integer.
      */
-    protected int getTamanho() {
-        return this.tamanho;
+    protected int getSize() {
+        return this.size;
     }
 
     /**
      * Inserts password size.
-     * @param tamanho 
+     * @param size integer
      */
-    protected void setTamanho(int tamanho) {
-        this.tamanho = tamanho;
+    protected void setSize(int size) {
+        this.size = size;
     }
 
     /**
@@ -238,7 +238,7 @@ public abstract class AbsGenerate {
      * This method removes all data from this object instance.
      */
     protected void cleanAll() {
-        this.setTamanho(0);
+        this.setSize(0);
         this.setInit(0);
         this.setFinish(0);
         this.setRandom(0);
@@ -268,17 +268,17 @@ public abstract class AbsGenerate {
     
     /**
      * This method will validate the operation.
-     * @param tamanho Integer - For Password desired size.
+     * @param size Integer - For Password desired size.
      * @param upcase Boolean - For UpCase Letters.
      * @param lowcase Boolean - For LowCase Letters.
      * @param number Boolean - For Numbers generation.
      * @param symbol Boolean - For Symbols generation.
      */
-    protected void sedingInformation(int tamanho, boolean upcase, boolean lowcase, 
+    protected void sedingInformation(int size, boolean upcase, boolean lowcase, 
             boolean number, boolean symbol) {
         if (upcase || lowcase || number || symbol) {
             // entrando aqui, dados válidos.
-            this.setTamanho(tamanho);
+            this.setSize(size);
             this.setUpcase(upcase);
             this.setLowcase(lowcase);
             this.setNumber(number);

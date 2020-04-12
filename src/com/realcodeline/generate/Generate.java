@@ -21,19 +21,19 @@ public class Generate extends AbsGenerate implements IGenerate {
     /**
      * This class is for generating password, it receives data from the 
      * user and work to generate a new password.
-     * @param tamanho Integer - For Password desired size.
+     * @param size Integer - For Password desired size.
      * @param upcase Boolean - For UpCase Letters.
      * @param lowcase Boolean - For LowCase Letters.
      * @param number Boolean - For Numbers generation.
      * @param symbol Boolean - For Symbols generation.
      */
     @Override
-    public void gerenciandoPassInfo(int tamanho, boolean upcase, boolean lowcase, 
+    public void gerenciandoPassInfo(int size, boolean upcase, boolean lowcase, 
             boolean number, boolean symbol) {
         // limpando todos os atributos
         this.cleanAll();
         // validando dados
-        this.sedingInformation(tamanho, upcase, lowcase, number, symbol);
+        this.sedingInformation(size, upcase, lowcase, number, symbol);
         // verificando se não houve sucesso.
         if (!this.isAllow()) {
             // finaliza a execução e retorna
@@ -84,7 +84,7 @@ public class Generate extends AbsGenerate implements IGenerate {
      */
     private void fourArgument() {
         int aux; // variável auxiliar
-        while (this.getPassword().length() < this.getTamanho()) {
+        while (this.getPassword().length() < this.getSize()) {
             aux = 1+this.getRad().nextInt(4);
             if (aux == this.getRandom()) {
                 // volta ao incio do loop e reexecuta
@@ -121,7 +121,7 @@ public class Generate extends AbsGenerate implements IGenerate {
     private void threeArgument() {
         int aux; // variável auxiliar
         if (this.isUpcase() && this.isLowcase() && this.isNumber()) {
-            while (this.getPassword().length() < this.getTamanho()) {
+            while (this.getPassword().length() < this.getSize()) {
                 aux = 1+this.getRad().nextInt(3);
                 if (aux == this.getRandom()) {
                     // volta e reexecuta o loop.
@@ -144,7 +144,7 @@ public class Generate extends AbsGenerate implements IGenerate {
             }
         }
         else if (this.isUpcase() && this.isLowcase() && this.isSymbol()) {
-            while (this.getPassword().length() < this.getTamanho()) {
+            while (this.getPassword().length() < this.getSize()) {
                 aux = 1+this.getRad().nextInt(3);
                 if (aux == this.getRandom()) {
                     // volta e reexecuta o loop.
@@ -167,7 +167,7 @@ public class Generate extends AbsGenerate implements IGenerate {
             }
         }
         else if (this.isUpcase() && this.isNumber() && this.isSymbol()) {
-            while (this.getPassword().length() < this.getTamanho()) {
+            while (this.getPassword().length() < this.getSize()) {
                 aux = 1+this.getRad().nextInt(3);
                 if (aux == this.getRandom()) {
                     // volta e reexecuta o loop.
@@ -190,7 +190,7 @@ public class Generate extends AbsGenerate implements IGenerate {
             }
         }
         else if (this.isLowcase() && this.isNumber() && this.isSymbol()) {
-            while (this.getPassword().length() < this.getTamanho()) {
+            while (this.getPassword().length() < this.getSize()) {
                 aux = 1+this.getRad().nextInt(3);
                 if (aux == this.getRandom()) {
                     // volta e reexecuta o loop.
@@ -221,7 +221,7 @@ public class Generate extends AbsGenerate implements IGenerate {
     private void twoArgument() {
         int aux; // variável auxiliar
         if (this.isUpcase() && this.isLowcase()) {
-            while (this.getPassword().length() < this.getTamanho()) {
+            while (this.getPassword().length() < this.getSize()) {
                 aux = 1+this.getRad().nextInt(2);
                 if (aux == this.getRandom()) {
                     // volta e reexecuta o loop.
@@ -241,7 +241,7 @@ public class Generate extends AbsGenerate implements IGenerate {
             }
         }
         else if (this.isUpcase() && this.isNumber()) {
-            while (this.getPassword().length() < this.getTamanho()) {
+            while (this.getPassword().length() < this.getSize()) {
                 aux = 1+this.getRad().nextInt(2);
                 if (aux == this.getRandom()) {
                     // volta e reexecuta o loop.
@@ -261,7 +261,7 @@ public class Generate extends AbsGenerate implements IGenerate {
             }
         }
         else if (this.isUpcase() && this.isSymbol()) {
-            while (this.getPassword().length() < this.getTamanho()) {
+            while (this.getPassword().length() < this.getSize()) {
                 aux = 1+this.getRad().nextInt(2);
                 if (aux == this.getRandom()) {
                     // volta e reexecuta o loop.
@@ -281,7 +281,7 @@ public class Generate extends AbsGenerate implements IGenerate {
             }
         }
         else if (this.isLowcase() && this.isNumber()) {
-            while (this.getPassword().length() < this.getTamanho()) {
+            while (this.getPassword().length() < this.getSize()) {
                 aux = 1+this.getRad().nextInt(2);
                 if (aux == this.getRandom()) {
                     // volta e reexecuta o loop.
@@ -301,7 +301,7 @@ public class Generate extends AbsGenerate implements IGenerate {
             }
         }
         else if (this.isLowcase() && this.isSymbol()) {
-            while (this.getPassword().length() < this.getTamanho()) {
+            while (this.getPassword().length() < this.getSize()) {
                 aux = 1+this.getRad().nextInt(2);
                 if (aux == this.getRandom()) {
                     // volta e reexecuta o loop.
@@ -321,7 +321,7 @@ public class Generate extends AbsGenerate implements IGenerate {
             }
         }
         else if (this.isNumber() && this.isSymbol()) {
-            while (this.getPassword().length() < this.getTamanho()) {
+            while (this.getPassword().length() < this.getSize()) {
                 aux = 1+this.getRad().nextInt(2);
                 if (aux == this.getRandom()) {
                     // volta e reexecuta o loop.
@@ -348,22 +348,22 @@ public class Generate extends AbsGenerate implements IGenerate {
      */
     private void oneArgument() {
         if (this.isUpcase()) {
-            while (this.getPassword().length() < this.getTamanho()) {
+            while (this.getPassword().length() < this.getSize()) {
                 // inserindo letra maiuscula
                 this.onlyUpCaseChar();
             }
         } else if (this.isLowcase()) {
-            while (this.getPassword().length() < this.getTamanho()) {
+            while (this.getPassword().length() < this.getSize()) {
                 // inserindo letra minuscula
                 this.onlyLowCaseChar();
             }
         } else if (this.isNumber()) {
-            while (this.getPassword().length() < this.getTamanho()) {
+            while (this.getPassword().length() < this.getSize()) {
                 // inserindo numero
                 this.onlyNumberChar();
             }
         } else if (this.isSymbol()) {
-            while (this.getPassword().length() < this.getTamanho()) {
+            while (this.getPassword().length() < this.getSize()) {
                 // inserindo simbolo
                 this.onlySymbolChar();
             }
