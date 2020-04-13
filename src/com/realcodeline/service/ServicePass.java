@@ -6,6 +6,7 @@
 package com.realcodeline.service;
 
 import com.realcodeline.model.PassModel;
+import com.realcodeline.generate.IGenerate;
 
 /**
  * Service that approve or not the sent data to generate.
@@ -13,12 +14,14 @@ import com.realcodeline.model.PassModel;
  */
 public class ServicePass implements IServicePass {
     private String password;
+    private IGenerate generate;
     
     /**
      * Builder Method.
      */
     public ServicePass() {
         this.password = "";
+        this.generate = new com.realcodeline.generate.Generate();
     }
     
     /** 
@@ -31,7 +34,8 @@ public class ServicePass implements IServicePass {
         this.setPassword("");
         if (this.isInvalidSize(model) || 
                 !this.isOneNotFalse(model)) return this.getPassword();
-        
+        this.getGenerate().gerenciandoPassInfo(model);
+        this.setPassword(this.getGenerate().getPasswordGenerate());
         return this.getPassword();
     }
     
@@ -64,6 +68,10 @@ public class ServicePass implements IServicePass {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public IGenerate getGenerate() {
+        return generate;
     }
     
 }

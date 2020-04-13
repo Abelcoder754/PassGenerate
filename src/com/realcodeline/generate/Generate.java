@@ -5,6 +5,8 @@
  */
 package com.realcodeline.generate;
 
+import com.realcodeline.model.PassModel;
+
 /**
  * This class has the need tools to generate a new password.
  * @author abel
@@ -19,21 +21,16 @@ public class Generate extends AbsGenerate implements IGenerate {
     }
     
     /**
-     * This class is for generating password, it receives data from the 
+     * This method is for generating password, it receives data from the 
      * user and work to generate a new password.
-     * @param size Integer - For Password desired size.
-     * @param upcase Boolean - For UpCase Letters.
-     * @param lowcase Boolean - For LowCase Letters.
-     * @param number Boolean - For Numbers generation.
-     * @param symbol Boolean - For Symbols generation.
+     * @param model PassModel Object
      */
     @Override
-    public void gerenciandoPassInfo(int size, boolean upcase, boolean lowcase, 
-            boolean number, boolean symbol) {
+    public void gerenciandoPassInfo(PassModel model) {
         // limpando todos os atributos
         this.cleanAll();
         // validando dados
-        this.sedingInformation(size, upcase, lowcase, number, symbol);
+        this.sedingInformation(model);
         // verificando se não houve sucesso.
         if (!this.isAllow()) {
             // finaliza a execução e retorna
@@ -71,7 +68,7 @@ public class Generate extends AbsGenerate implements IGenerate {
      * @return String - the password that was generated.
      */
     @Override
-    public String takePasswordGenerated() {
+    public String getPasswordGenerate() {
         if (this.isAllow()) {
             return this.getPassword();
         }

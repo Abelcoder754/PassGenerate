@@ -5,12 +5,13 @@
  */
 package com.realcodeline.generate;
 
+import com.realcodeline.model.PassModel;
+
 /**
  * Interface for Generate class.
  * @author abel
  */
 public interface IGenerate {
-    public abstract void gerenciandoPassInfo(int size, boolean upcase, boolean lowcase, 
-            boolean number, boolean symbol);
-    public abstract String takePasswordGenerated();
+    public abstract void gerenciandoPassInfo(PassModel model);
+    public abstract String getPasswordGenerate();
 }

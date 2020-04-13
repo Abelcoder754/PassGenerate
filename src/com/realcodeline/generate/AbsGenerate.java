@@ -5,6 +5,7 @@
  */
 package com.realcodeline.generate;
 
+import com.realcodeline.model.PassModel;
 import java.security.SecureRandom;
 
 /**
@@ -268,21 +269,16 @@ public abstract class AbsGenerate {
     
     /**
      * This method will validate the operation.
-     * @param size Integer - For Password desired size.
-     * @param upcase Boolean - For UpCase Letters.
-     * @param lowcase Boolean - For LowCase Letters.
-     * @param number Boolean - For Numbers generation.
-     * @param symbol Boolean - For Symbols generation.
+     * @param model PassModel Object
      */
-    protected void sedingInformation(int size, boolean upcase, boolean lowcase, 
-            boolean number, boolean symbol) {
-        if (upcase || lowcase || number || symbol) {
+    protected void sedingInformation(PassModel model) {
+        if (model.isUpcase() || model.isLowcase() || model.isNumber() || model.isSymbol()) {
             // entrando aqui, dados válidos.
-            this.setSize(size);
-            this.setUpcase(upcase);
-            this.setLowcase(lowcase);
-            this.setNumber(number);
-            this.setSymbol(symbol);
+            this.setSize(model.getSize());
+            this.setUpcase(model.isUpcase());
+            this.setLowcase(model.isLowcase());
+            this.setNumber(model.isNumber());
+            this.setSymbol(model.isSymbol());
             this.setAllow(true);
         } else {
             // entrando aqui, dados invalidos.
