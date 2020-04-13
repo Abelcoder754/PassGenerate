@@ -14,7 +14,7 @@ import com.realcodeline.generate.IGenerate;
  */
 public class ServicePass implements IServicePass {
     private String password;
-    private IGenerate generate;
+    private final IGenerate generate;
     
     /**
      * Builder Method.
